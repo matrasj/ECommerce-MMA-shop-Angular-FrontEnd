@@ -1,0 +1,23 @@
+textarea {
+  min-width: 40rem;
+  min-height: 20rem;
+  font-size: 1.6rem;
+  padding: 0.8rem 1.4rem;
+  max-height: 40rem;
+}
+
+h1 {
+  margin-bottom: 2.4rem;
+}
+form div{
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+.add-basket-btn {
+  margin-top: 2.4rem;
+}

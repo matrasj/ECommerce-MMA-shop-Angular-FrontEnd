@@ -1,0 +1,83 @@
+.product-list-con {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 3.8rem;
+  column-gap: 4.8rem;
+}
+
+.product-view {
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.product-view:hover {
+  transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: all 0.2s linear;
+}
+
+.product-img {
+  width: 100%;
+}
+
+.product-name {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  color: #333;
+  margin-bottom: 2.4rem;
+  height: 8rem;
+}
+
+.product-size {
+  background-color: #333333;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.2rem;
+  width: max-content;
+  margin-bottom: 1.2rem
+}
+
+.product-brand {
+  font-size: 1.4rem;
+  background-color: #333333;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 3.2rem;
+}
+
+.product-price {
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.product-data {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 2.2rem;
+}
+
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+  /*background-color: #333333 !important;*/
+  color: #333 !important;
+  font-size: 1.8rem;
+}
+
+ngb-pagination ::ng-deep ul > li.active > a {
+  background-color: #333333 !important;
+  border: solid #333 1px !important;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3.8rem;
+}

@@ -1,0 +1,9 @@
+<div class="categories-filter-container">
+  <ul>
+    <li *ngFor="let productCategory of productCategories"
+        routerLinkActive="link-active"
+        [routerLinkActiveOptions]="{ exact : true}"
+        [routerLink]="['', 'products', 'category', productCategory.id]"
+    >{{ productCategory.name }}</li>
+  </ul>
+</div>

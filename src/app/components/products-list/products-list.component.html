@@ -1,0 +1,26 @@
+<div class="flex-col">
+  <div class="product-list-con">
+    <div class="product-view" *ngFor="let product of products" [routerLink]="['/products', 'view', product.id]">
+      <img [src]="product.imagePath" class="product-img"/>
+      <div class="product-data">
+        <p class="product-name">{{ product.name }}</p>
+
+        <p class="product-size">Size: {{ product.size }}</p>
+        <p class="product-brand">Brand: {{ product.brandName }}</p>
+        <p class="product-price">{{ product.price | currency : 'PLN'}}</p>
+        <button class="add-basket-btn" (click)="addToTheBasket(product)">Add to basket</button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <ngb-pagination
+    [collectionSize]="totalElements"
+    [(page)]="pageNumber"
+    [boundaryLinks]="true"
+    [pageSize]="pageSize"
+    (pageChange)="fetchProductsData()"
+  ></ngb-pagination>
+
+</div>

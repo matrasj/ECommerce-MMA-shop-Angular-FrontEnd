@@ -1,0 +1,99 @@
+.logo-img {
+  width: 15rem;
+}
+
+menu {
+  padding: 1.8rem 4.8rem;
+  background-color: rgba(247,247,247,255);
+}
+
+.user-feature-icon {
+  width: 3rem;
+  stroke: #333333;
+}
+
+.user-menu-feature-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.basket-con {
+  display: flex;
+  align-items: center;
+}
+
+.main-menu-con {
+  display: flex;
+  justify-content: space-between;
+  /*position: fixed;*/
+  /*width: 100%;*/
+  /*left: 0;*/
+  /*z-index: 2;*/
+}
+
+h1 {
+  text-transform: uppercase;
+}
+.logo-con {
+  gap: 7.2rem;
+  cursor: pointer;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+
+input {
+  width: 25rem;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.search-bar {
+  display: flex;
+  width: min-content;
+  border: #666 solid 2px;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1.2rem;
+}
+
+.search-icon {
+  width: 3rem;
+  height: 3rem;
+  stroke: #333;
+  cursor: pointer;
+}
+
+.menu {
+  width: 10rem;
+  font-size: 1.6rem;
+}
+
+
+.user-menu-feature-con::after {
+  content: none;
+}
+
+.total-quantity {
+  z-index: 3;
+  position: absolute;
+  right: -10%;
+  top: -20%;
+  background-color: #333333;
+  font-size: 1.2rem;
+  padding: 0.8rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

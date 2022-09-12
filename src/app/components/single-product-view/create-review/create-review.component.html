@@ -1,0 +1,14 @@
+<div class="con">
+  <form [formGroup]="reviewFormGroup" (ngSubmit)="onReviewCreating()">
+    <div class="review" formGroupName="review">
+      <h1>Your review</h1>
+      <textarea class="form-control"
+                [ngClass]="content.errors && (content.touched || content.dirty) ? 'is-invalid' : ''"
+                formControlName="content"></textarea>
+
+        <p *ngIf="content.errors && (content.touched || content.dirty)"
+          class="invalid-feedback">Review must be valid</p>
+      <button class="add-basket-btn" type="submit">Post</button>
+    </div>
+  </form>
+</div>

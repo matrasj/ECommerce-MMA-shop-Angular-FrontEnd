@@ -1,0 +1,59 @@
+@import '~ngx-toastr/toastr.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+input, button {
+  outline: none !important;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.add-basket-btn {
+  background-color: #333333;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2.4rem;
+  font-size: 1.4rem;
+  transition: all 0.2s linear;
+}
+
+.add-basket-btn:hover {
+  background-color: #222;
+  transition: all 0.2s linear;
+}
+
+.alert {
+  font-size: 1.6rem;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,35 @@
+.categories-filter-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: solid 1px #999;
+  border-bottom: solid 1px #999;
+  align-items: center;
+  background-color: #f3f3f3;
+  margin-bottom: 3.8rem;
+}
+
+.categories-filter-container ul {
+  display: flex;
+  list-style: none;
+
+  margin: 0;
+}
+
+.categories-filter-container ul li {
+  font-size: 1.6rem;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.categories-filter-container ul li:hover {
+  background-color: #333333;
+  color: #fff;
+  transition: all 0.2s linear;
+}
+
+.link-active {
+  background-color: #333;;
+  color: #fff;
+}

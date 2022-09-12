@@ -1,0 +1,46 @@
+<div class="flex-col">
+  <div class="flex space-between header">
+    <div class="flex">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="basket-icon">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+      </svg>
+      <h1>Your basket</h1>
+    </div>
+
+    <svg (click)="dialogRef.closeAll()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="close-icon">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+
+  </div>
+
+  <div class="basket-product-list" *ngIf="basket.length > 0 else emptyBasket">
+    <div class="basket-product" *ngFor="let basketProduct of basket">
+      <img class="basket-product-img" [src]="basketProduct.imagePath"/>
+      <div>
+        <h2 class="basket-product-name">{{ basketProduct.name}}</h2>
+        <p class="basket-product-quantity">x{{ basketProduct.chosenQuantity }}</p>
+        <p class="basket-product-price">{{ basketProduct.price | currency : 'PLN'}}</p>
+      </div>
+      <svg (click)="onBasketProductDeleting(basketProduct)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="delete-basket-product-icon">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+
+    </div>
+  </div>
+
+  <ng-template #emptyBasket>
+    <p class="alert alert-warning" style="width: 100%; margin-top: 2.8rem">Your basket is empty.</p>
+  </ng-template>
+
+  <div class="summarize-con">
+    <div class="flex space-between">
+      <p>Total: </p>
+      <p id="price">{{ totalPrice | currency : 'PLN'}}</p>
+    </div>
+    <button class="add-basket-btn" [disabled]="basket.length === 0" (click)="onMakingPurchase()">Make purchase</button>
+
+    <p class="alert alert-danger">Do not wait with purchasing, adding to the basket does not mean reservation</p>
+  </div>
+
+
+</div>

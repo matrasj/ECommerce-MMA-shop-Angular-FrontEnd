@@ -1,0 +1,15 @@
+footer {
+  margin-top: 3.8rem;
+  width: 100%;
+  background-color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  color: #f3f3f3;
+  padding: 3.8rem;
+  margin: 0;
+  font-size: 1.8rem;
+}

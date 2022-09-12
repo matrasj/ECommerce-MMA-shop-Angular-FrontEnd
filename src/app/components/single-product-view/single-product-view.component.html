@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="main-product-con">
+    <img class="product-img" [src]="currentProduct?.imagePath"/>
+    <div class="flex-col main-data-con">
+      <h1 class="product-name">{{ currentProduct?.name }}</h1>
+      <div class="flex">
+        <p class="product-price">{{ currentProduct?.price | currency : 'PLN'}}</p>
+        <p class="product-brand">{{ currentProduct?.brandName}}</p>
+      </div>
+
+      <p class="product-size">Size: <span>{{ currentProduct?.size}}</span></p>
+
+      <p class="product-quantity">Available quantity: <strong>{{ currentProduct?.quantity}}</strong></p>
+
+      <div class="choose-quantity-con" style="display: flex; align-items: center; gap: 2.4rem;">
+       <div>
+         <label>Choose quantity</label>
+         <div class="flex">
+
+           <div class="quantity-con">
+
+             <svg (click)="decrementChosenQuantity()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="quantity-icon">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+             </svg>
+             <div class="quantity-num" >{{ chosenQuantity}}</div>
+             <svg (click)="incrementChosenQuantity()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="quantity-icon">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+             </svg>
+
+           </div>
+
+         </div>
+       </div>
+        <button class="add-basket-btn" (click)="addItemToTheBasket()">Add to basket</button>
+      </div>
+
+      <hr/>
+      <div class="info-con">
+        <p class="product-info"><strong>Producer: </strong> {{ currentProduct?.brandName}}</p>
+        <p class="product-info"><strong>Category: </strong> {{ currentProduct?.productCategoryName}}</p>
+        <p class="product-info"><strong>Shipping: </strong> Free</p>
+        <button class="ask-product-btn">Ask about products</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-special-info">
+    <h1 id="product-specification-header">Product specification</h1>
+    <p style="font-weight: bold; font-size: 1.6rem;">{{ currentProduct?.name}}</p>
+    <p class="product-desc">{{ currentProduct?.description}}</p>
+  </div>
+
+  <div class="reviews-con">
+    <h1>Reviews</h1>
+    <div class="create-review" *ngIf="authenticated; else noAuthenticated">
+      <button class="add-basket-btn" (click)="onReviewCreating()">Create review</button>
+    </div>
+
+    <ng-template #noAuthenticated>
+      <p class="alert alert-warning">Only authenticated users can post reviews</p>
+      <button class="add-basket-btn" routerLink="/login">Login</button>
+    </ng-template>
+    <div class="reviews">
+      <div class="review" *ngFor="let review of reviews">
+        <div class="flex-col">
+          <p class="review-author">{{ review.authorUsername }} ({{ getFormattedDate(review.createdAt)}})</p>
+          <p class="review-content">{{ review.content }}</p>
+        </div>
+      </div>
+
+      <p class="alert alert-warning" *ngIf="reviews.length === 0">No reviews yet.</p>
+    </div>
+  </div>
+</div>

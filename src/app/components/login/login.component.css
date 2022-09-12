@@ -1,0 +1,28 @@
+
+
+.form-label {
+  font-size: 1.6rem;
+}
+
+.form-control {
+  font-size: 1.6rem;
+}
+
+.invalid-feedback {
+  font-size: 1.2rem;
+}
+
+.register-btn {
+  color: #fff;
+  background-color: #333;
+  font-size: 1.6rem;
+  padding: 0.6rem 3.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.register-btn:hover {
+  background-color: #222;
+  transition: all 0.2s linear;
+}

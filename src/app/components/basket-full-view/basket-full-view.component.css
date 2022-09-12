@@ -1,0 +1,106 @@
+
+
+.space-between {
+  justify-content: space-between;
+}
+
+.quantity-icon {
+  width: 3rem;
+  stroke: #333;
+}
+
+h1 {
+  margin-bottom: 2.4rem;
+}
+
+.quantity-num {
+  border: none;
+  font-size: 1.6rem;
+  width: 8rem;
+  text-align: center;
+  margin: 0;
+}
+
+.quantity-con {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border: solid 1px #333333;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.delete-icon {
+  width: 3rem;
+  stroke: #222;
+  cursor: pointer;
+}
+
+.product-img {
+  width: 20rem;
+}
+
+.basket-product {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 2.4rem 3.8rem;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.data-con {
+  padding: 4.8rem 2.4rem;
+}
+
+.product-name {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.product-quantity {
+  font-size: 1.2rem;
+}
+
+.product-price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #e03131;
+}
+
+.basket-product-list-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+}
+
+.con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 4.8rem 0;
+  min-height: 80vh;
+}
+
+.additional-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.8rem;
+}
+
+#header-info {
+  font-size: 1.6rem;
+  color: #333;
+}
