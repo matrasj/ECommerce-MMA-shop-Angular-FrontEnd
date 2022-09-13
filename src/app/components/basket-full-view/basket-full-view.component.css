@@ -40,7 +40,7 @@ h1 {
   width: 20rem;
 }
 
-.basket-product {
+.basket-product, .sum-con {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 2.4rem 3.8rem;
   width: 100%;
@@ -80,8 +80,9 @@ h1 {
 .basket-product-list-con {
   display: flex;
   flex-direction: column;
+  gap: 3.8rem;
   align-items: center;
-  width: 75%;
+  width: 70%;
 }
 
 .con {
@@ -103,4 +104,13 @@ h1 {
 #header-info {
   font-size: 1.6rem;
   color: #333;
+}
+
+.sum-con p{
+  font-size: 1.8rem;
+}
+
+.add-basket-btn {
+  width: 100%;
+  margin-top: 2rem;
 }

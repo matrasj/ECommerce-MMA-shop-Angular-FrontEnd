@@ -29,6 +29,8 @@ import {DateFormatService} from "./service/date-format-service";
 import {BasketService} from "./service/basket-service";
 import { BasketLightViewComponent } from './components/basket-light-view/basket-light-view.component';
 import { BasketFullViewComponent } from './components/basket-full-view/basket-full-view.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import {PurchaseService} from "./service/purchase-service";
 
 
 const routes = [
@@ -39,7 +41,8 @@ const routes = [
   { path : "products/view/:productId", component: SingleProductViewComponent},
   { path : "register", component: RegisterComponent},
   { path: "login", component: LoginComponent},
-  { path : "basket", component: BasketFullViewComponent}
+  { path : "basket", component: BasketFullViewComponent},
+  { path : "checkout", component: CheckoutComponent}
 ];
 
 export function createTranslateLoader(httpClient : HttpClient) {
@@ -59,7 +62,8 @@ export function createTranslateLoader(httpClient : HttpClient) {
     LoginComponent,
     CreateReviewComponent,
     BasketLightViewComponent,
-    BasketFullViewComponent
+    BasketFullViewComponent,
+    CheckoutComponent
 
   ],
   imports: [
@@ -89,7 +93,15 @@ export function createTranslateLoader(httpClient : HttpClient) {
     }),
 
   ],
-  providers: [ProductCategoryService, NgbDropdown, ToastrService, AuthService, ReviewService, DateFormatService, BasketService,
+  providers: [
+    ProductCategoryService,
+    NgbDropdown,
+    ToastrService,
+    AuthService,
+    ReviewService,
+    DateFormatService,
+    BasketService,
+    PurchaseService,
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptor, multi : true},],
   bootstrap: [AppComponent]
 })

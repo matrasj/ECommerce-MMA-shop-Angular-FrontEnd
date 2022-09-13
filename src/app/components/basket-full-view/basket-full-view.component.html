@@ -1,7 +1,10 @@
 <div class="basket-con">
   <div class="con">
-    <div class="basket-product-list-con" >
-      <h1 style="align-self: flex-start">Basket</h1>
+
+    <div class="basket-product-list-con">
+
+      <h1 style="align-self: flex-start; margin-bottom: -2rem">Basket</h1>
+      <p *ngIf="basket.length === 0" class="alert alert-warning" style="width: 100%">Basket is empty.</p>
       <div class="basket-product flex space-between" *ngFor="let product of basket">
         <div class="flex align-start">
           <img class="product-img" [src]="product.imagePath"/>
@@ -34,9 +37,18 @@
             <p class="product-price">{{ product.chosenQuantity * product.price | currency : 'PLN'}}</p>
           </div>
         </div>
-
       </div>
-      <p *ngIf="basket.length === 0" class="alert alert-warning" style="width: 100%">Basket is empty.</p>
+
+      <div style="align-self: flex-start" class="sum-con">
+        <p>Total quantity: {{ totalQuantity }}</p>
+        <p>Shipping : FREE</p>
+        <p>Total price: {{ totalPrice | currency : 'PLN'}}</p>
+        <button class="add-basket-btn" [disabled]="basket.length === 0" routerLink="/checkout">Checkout</button>
+      </div>
+
     </div>
+
+
+
   </div>
 </div>

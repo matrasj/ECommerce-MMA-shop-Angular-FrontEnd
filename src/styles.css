@@ -57,3 +57,8 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
