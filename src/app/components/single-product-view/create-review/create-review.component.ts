@@ -41,9 +41,11 @@ export class CreateReviewComponent implements OnInit {
         this.content.value,
         this.currentProductId
       )).subscribe((res) => {
+        window.location.reload();
         this.toastrService.success(res);
         this.reviewFormGroup.reset();
         this.dialogRef.closeAll();
+
       })
     }
   }

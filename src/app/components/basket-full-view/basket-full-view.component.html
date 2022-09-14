@@ -42,13 +42,10 @@
       <div style="align-self: flex-start" class="sum-con">
         <p>Total quantity: {{ totalQuantity }}</p>
         <p>Shipping : FREE</p>
-        <p>Total price: {{ totalPrice | currency : 'PLN'}}</p>
+        <p>Total price: <span style="color: #e03131; font-weight: bold;">{{ totalPrice | currency : 'PLN'}}</span></p>
         <button class="add-basket-btn" [disabled]="basket.length === 0" routerLink="/checkout">Checkout</button>
       </div>
 
     </div>
-
-
-
   </div>
 </div>

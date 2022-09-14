@@ -3,6 +3,8 @@ import {BehaviorSubject, Subject} from "rxjs";
 import {BasketProductModel} from "../model/basket-product-model";
 import {bottom} from "@popperjs/core";
 import {ProductModel} from "../model/product-model";
+import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Injectable({
   providedIn : 'root'
@@ -12,7 +14,8 @@ export class BasketService {
   public totalQuantity : Subject<number> = new BehaviorSubject(0);
   public basket : BasketProductModel[] = [];
 
-  constructor() {
+  constructor(private router : Router,
+              private toastrService : ToastrService) {
     if (localStorage.getItem('basket')) {
       // @ts-ignore
       this.basket = JSON.parse(localStorage.getItem('basket'));
@@ -69,6 +72,15 @@ export class BasketService {
     }
 
     this.computeBasket();
+  }
+
+  resetCart() {
+    this.basket = [];
+    this.totalPrice.next(0);
+    this.totalQuantity.next(0);
+    this.computeBasket();
+    this.router.navigate(['/']);
+    this.toastrService.success("Successfully made order!")
   }
 
 }

@@ -20,7 +20,9 @@ export class RegisterComponent implements OnInit {
       account : this.formBuilder.group({
         username : new FormControl('', [Validators.required, Validators.minLength(3)]),
         password : new FormControl('', [Validators.required, Validators.minLength(3)]),
-        email : new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
+        email : new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+        firstName : new FormControl('', [Validators.required, Validators.minLength(2)]),
+        lastName : new FormControl('', [Validators.required, Validators.minLength(2)])
       })
     })
   }
@@ -37,11 +39,21 @@ export class RegisterComponent implements OnInit {
     return this.registerFormGroup.get('account').get('email');
   }
 
+  get firstName() {
+    return this.registerFormGroup.get('account').get('firstName');
+  }
+
+  get lastName() {
+    return this.registerFormGroup.get('account').get('lastName');
+  }
+
   onSigningUp() {
     if (this.registerFormGroup.invalid) {
       this.registerFormGroup.markAllAsTouched();
     } else {
       this.authService.registerUser(new RegistrationRequestModel(
+        this.firstName.value,
+        this.lastName.value,
         this.username.value,
         this.password.value,
         this.email.value

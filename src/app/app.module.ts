@@ -31,6 +31,7 @@ import { BasketLightViewComponent } from './components/basket-light-view/basket-
 import { BasketFullViewComponent } from './components/basket-full-view/basket-full-view.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {PurchaseService} from "./service/purchase-service";
+import {UserService} from "./service/user-service";
 
 
 const routes = [
@@ -70,7 +71,7 @@ export function createTranslateLoader(httpClient : HttpClient) {
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {scrollPositionRestoration : 'enabled'}),
     NgbModule,
     NgbDropdownModule,
     BrowserAnimationsModule,
@@ -102,6 +103,7 @@ export function createTranslateLoader(httpClient : HttpClient) {
     DateFormatService,
     BasketService,
     PurchaseService,
+    UserService,
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptor, multi : true},],
   bootstrap: [AppComponent]
 })
