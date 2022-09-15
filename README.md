@@ -1,4 +1,4 @@
-Frontend for ECommerce MMA shop. I used Angular and Bootstrap for some styles. Backend has been written in Java and Spring Boot here --> https://github.com/pozerinhooo/ECommerce-MMA-shop-SpringBoot-Backend (ECOMMRECE IS NOT RESPONSIVE YET)
+Frontend for ECommerce MMA shop project. I used Angular to learn and practise real use of this framework. Backend has been written in Java and Spring Boot here --> https://github.com/pozerinhooo/ECommerce-MMA-shop-SpringBoot-Backend (PROJECT IS NOT RESPONSIVE YET)
 
 #########################################################
 Some screenshots
@@ -22,6 +22,6 @@ Some screenshots
 
 
 
-Images and description are taken form real E-Commerce Store: https://mmaniak.pl/
+Images and descriptions are taken form real polish E-Commerce Store: https://mmaniak.pl/
 
 
