@@ -2,6 +2,8 @@
   display: flex;
   align-items: flex-start;
   gap: 3.8rem;
+  padding-top: 4.2rem;
+  margin-bottom: 3.8rem;
 }
 
 .product-img {

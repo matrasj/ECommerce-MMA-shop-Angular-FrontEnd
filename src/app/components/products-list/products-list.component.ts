@@ -14,7 +14,7 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class ProductsListComponent implements OnInit {
   products : ProductModel[] = [];
-  pageSize : number = 4;
+  pageSize : number = 5;
   pageNumber : number = 1;
   totalElements : number = 0;
   totalPages : number = 0;

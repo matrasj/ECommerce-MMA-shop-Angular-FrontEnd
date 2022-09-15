@@ -58,9 +58,58 @@ input {
 .search-bar {
   display: flex;
   width: min-content;
-  border: #666 solid 2px;
-  border-radius: 0.5rem;
-  padding: 0.4rem 1.2rem;
+  padding: 1rem 2.4rem;
+  position: relative;
+  background-color: #fff;
+}
+
+.search-results-con {
+  width: 100%;
+  padding: 2.4rem 1.8rem;
+  position: absolute;
+  z-index: 3;
+  background-color: #fff;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 0.8rem;
+  transition: all 0.2s linear;
+}
+
+
+.result:hover {
+  transition: all 0.2s linear;
+  background-color: #f3f3f3;
+}
+
+.search-result-img {
+  width: 7rem;
+}
+
+.searched-name {
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.searched-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #e03131;
+}
+
+.search-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .search-icon {

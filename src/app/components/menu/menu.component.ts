@@ -5,6 +5,9 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {BasketService} from "../../service/basket-service";
 import {MatDialog} from "@angular/material/dialog";
 import {BasketLightViewComponent} from "../basket-light-view/basket-light-view.component";
+import {ProductModel} from "../../model/product-model";
+import {ProductService} from "../../service/product-service";
+import {HelpSearchingModalService} from "../../service/help-searching-modal-service";
 
 @Component({
   selector: 'app-menu',
@@ -17,13 +20,21 @@ export class MenuComponent implements OnInit {
   currentUsername : string | any;
   totalPrice : number = 0;
   totalQuantity : number = 0;
+  searchedProducts : ProductModel[] = [];
+  showResults : boolean = false;
+  private searchedLimit: number = 5;
   constructor(private authService : AuthService,
               private router : Router,
               private formBuilder : FormBuilder,
               private basketService : BasketService,
-              private dialogRef : MatDialog) { }
+              private dialogRef : MatDialog,
+              private productService : ProductService,
+              private helpSearchingModalService : HelpSearchingModalService) { }
 
   ngOnInit(): void {
+    this.helpSearchingModalService.isSearchingModalShowing
+      .subscribe((isShowing) => this.showResults = isShowing);
+
     this.basketService.totalPrice
       .subscribe((totalPrice) => this.totalPrice = totalPrice);
 
@@ -53,8 +64,10 @@ export class MenuComponent implements OnInit {
   }
 
   onKeywordSearching() {
+    this.helpSearchingModalService.closeModal();
     this.router.navigate(['', 'search', this.keyword.value]);
     this.keywordFormGroup.reset();
+
   }
 
   onBasketShowing() {
@@ -66,6 +79,19 @@ export class MenuComponent implements OnInit {
       },
       enterAnimationDuration : '0.2s',
     });
+  }
+
+  onLookingForAProducts(event : Event | any) {
+    this.helpSearchingModalService.showModal();
+
+    this.productService.getProductsByKeywordSearching(String(event.target.value), this.searchedLimit)
+      .subscribe((products) => this.searchedProducts = products);
+  }
+
+  navigateToProductView(searchedProduct : ProductModel) {
+    this.helpSearchingModalService.closeModal();
+    this.router.navigate(['/products', 'view', searchedProduct.id]);
+    this.keywordFormGroup.reset();
   }
 
 }

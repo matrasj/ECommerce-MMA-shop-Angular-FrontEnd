@@ -17,10 +17,21 @@
       </svg>
      <form (ngSubmit)="onKeywordSearching()" [formGroup]="keywordFormGroup">
        <div class="search-bar">
-         <input type="text" placeholder="Search for products..." formControlName="keyword"/>
-         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="search-icon">
+         <input autocomplete="off" type="text" placeholder="Search for products..." id="search-input" formControlName="keyword" (keyup)="onLookingForAProducts($event)"/>
+         <svg (click)="onKeywordSearching()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="search-icon">
            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
          </svg>
+
+         <div class="search-results-con" *ngIf="showResults">
+           <p class="alert alert-warning" style="width: 100%;" *ngIf="searchedProducts.length === 0">No products found.</p>
+            <div (click)="navigateToProductView(searchedProduct)" class="result" *ngFor="let searchedProduct of searchedProducts">
+              <img [src]="searchedProduct.imagePath" class="search-result-img"/>
+              <div class="search-data">
+                <p class="searched-name">{{ searchedProduct.name }}</p>
+                <p class="searched-price">{{ searchedProduct.price}} PLN</p>
+              </div>
+            </div>
+         </div>
        </div>
      </form>
    </div>

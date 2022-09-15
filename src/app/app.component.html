@@ -1,5 +1,8 @@
-<app-menu></app-menu>
-<div class="con-pad">
-  <router-outlet></router-outlet>
+<div (click)="onClosingSearching($event)">
+  <app-menu></app-menu>
+  <div class="con-pad">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+
 </div>
-<app-footer></app-footer>

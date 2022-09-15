@@ -40,6 +40,7 @@ import { ReviewsHistoryComponent } from './components/profile/reviews-history/re
 import { AccountDeliveryDataComponent } from './components/profile/account-delivery-data/account-delivery-data.component';
 import {OrderModel} from "./model/order-model";
 import {OrderService} from "./service/order-service";
+import {HelpSearchingModalService} from "./service/help-searching-modal-service";
 
 
 const routes = [
@@ -124,6 +125,7 @@ export function createTranslateLoader(httpClient : HttpClient) {
     PurchaseService,
     UserService,
     OrderService,
+    HelpSearchingModalService,
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptor, multi : true},],
   bootstrap: [AppComponent]
 })
