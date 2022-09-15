@@ -10,6 +10,7 @@ export class ProductService {
   private API_PRODUCTS_URL: string = "http://localhost:8081/api/v1/products/pagination?";
   private API_SINGLE_PRODUCT_URL: string = "http://localhost:8081/api/v1/products";
   private API_PRODUCTS_KEYWORD_URL : string = "http://localhost:8081/api/v1/products/pagination/findByNameContainingKeyword?"
+  private API_PRODUCTS_BRAND_URL: string = "http://localhost:8081/api/v1/products/pagination/findByBrandName?";
   constructor(private httpClient : HttpClient) {
   }
 
@@ -32,6 +33,10 @@ export class ProductService {
   public getProductWithPaginationByKeyword(keyword : string, pageSize : number, pageNumber : number) : Observable<PageApiResponse> {
     return this.httpClient.get<PageApiResponse>(`${this.API_PRODUCTS_KEYWORD_URL}pageNumber=${pageNumber}&pageSize=${pageSize}&keyword=${keyword}`);
   }
+
+  public getProductsWithPaginationByBrandName(brandName : string, pageSize : number, pageNumber : number) : Observable<PageApiResponse> {
+    return this.httpClient.get<PageApiResponse>(`${this.API_PRODUCTS_BRAND_URL}brandName=${brandName}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
+  }
 }
 
 interface PageApiResponse {
@@ -40,5 +45,4 @@ interface PageApiResponse {
   totalPages : number,
   size : number,
   number : number
-
 }

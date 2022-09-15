@@ -2,10 +2,10 @@
   <h1>Brand filters</h1>
   <div class="brands-list">
     <div class="brand-con" *ngFor="let brand of brands">
-      <input type="checkbox"
-             id="{{ brand }}" name="brand" [value]="brand" (change)="onChanging($event)"/>
-      <label [for]="brand">{{ brand }}</label>
-
+      <p class="brand-name"
+         [routerLink]="['/products', 'brand', brand]"
+          routerLinkActive="active-brand"
+      >{{ brand }}</p>
     </div>
   </div>
 </div>

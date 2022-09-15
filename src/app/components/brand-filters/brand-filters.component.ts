@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../service/product-service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-brand-filters',
@@ -9,23 +10,16 @@ import {ProductService} from "../../service/product-service";
 export class BrandFiltersComponent implements OnInit {
   brands : string[] = [];
   currentBrand : string = '';
-  constructor(private productService : ProductService) { }
+  constructor(private productService : ProductService,
+              private router : Router) { }
 
   ngOnInit(): void {
     this.productService.getAllDistinctBrandNames()
       .subscribe((brands) => this.brands = brands);
   }
 
-  onChanging(event : any) {
-    document.querySelectorAll('input')
-      .forEach((input) => {
-        if (input.value !== event.target.value) {
-          input.checked = false;
-        }
-      });
+  onChanging() {
 
-    this.currentBrand = event.target.value;
-    console.log(this.currentBrand)
   }
 
 }

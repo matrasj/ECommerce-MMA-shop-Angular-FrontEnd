@@ -41,9 +41,9 @@ h1 {
 }
 
 .basket-product, .sum-con {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 2.4rem 3.8rem;
   width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .flex {
@@ -83,6 +83,18 @@ h1 {
   gap: 3.8rem;
   align-items: center;
   width: 70%;
+  transition: all 0.2s linear;
+}
+
+.basket-product {
+  cursor: pointer;
+  transition: all 0.2s linear;
+
+}
+
+.basket-product:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.2s linear;
 }
 
 .con {

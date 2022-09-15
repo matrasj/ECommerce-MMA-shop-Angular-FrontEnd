@@ -32,18 +32,32 @@ import { BasketFullViewComponent } from './components/basket-full-view/basket-fu
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {PurchaseService} from "./service/purchase-service";
 import {UserService} from "./service/user-service";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { ProfileComponent } from './components/profile/profile.component';
+import {AuthGuard} from "./service/security/auth-guard";
+import { OrdersHistoryComponent } from './components/profile/orders-history/orders-history.component';
+import { ReviewsHistoryComponent } from './components/profile/reviews-history/reviews-history.component';
+import { AccountDeliveryDataComponent } from './components/profile/account-delivery-data/account-delivery-data.component';
+import {OrderModel} from "./model/order-model";
+import {OrderService} from "./service/order-service";
 
 
 const routes = [
   { path : "", component : ProductsPageViewComponent},
   { path : "search/:keyword", component: ProductsPageViewComponent},
   { path : "products", component: ProductsPageViewComponent},
+  { path : "profile", component: ProfileComponent, canActivate : [AuthGuard]},
+  { path : "profile/orders", component : OrdersHistoryComponent, canActivate : [AuthGuard]},
+  { path : "profile/reviews", component: ReviewsHistoryComponent, canActivate : [AuthGuard]},
+  { path : "profile/account-delivery-data", component: AccountDeliveryDataComponent, canActivate : [AuthGuard]},
   { path : "products/category/:productCategoryId", component : ProductsPageViewComponent},
   { path : "products/view/:productId", component: SingleProductViewComponent},
   { path : "register", component: RegisterComponent},
   { path: "login", component: LoginComponent},
   { path : "basket", component: BasketFullViewComponent},
-  { path : "checkout", component: CheckoutComponent}
+  { path : "checkout", component: CheckoutComponent},
+  { path : "products/brand/:brandName", component: ProductsPageViewComponent},
+  { path : "**", redirectTo : '/'}
 ];
 
 export function createTranslateLoader(httpClient : HttpClient) {
@@ -64,14 +78,18 @@ export function createTranslateLoader(httpClient : HttpClient) {
     CreateReviewComponent,
     BasketLightViewComponent,
     BasketFullViewComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProfileComponent,
+    OrdersHistoryComponent,
+    ReviewsHistoryComponent,
+    AccountDeliveryDataComponent
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes, {scrollPositionRestoration : 'enabled'}),
+    RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'}),
     NgbModule,
     NgbDropdownModule,
     BrowserAnimationsModule,
@@ -84,14 +102,15 @@ export function createTranslateLoader(httpClient : HttpClient) {
       closeButton: true
     }),
     TranslateModule.forRoot({
-      loader : {
-        provide : TranslateLoader,
-        useFactory : (createTranslateLoader),
-        deps : [HttpClient],
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient],
 
       },
-      defaultLanguage : 'po'
+      defaultLanguage: 'po'
     }),
+    MatSidenavModule,
 
   ],
   providers: [
@@ -104,6 +123,7 @@ export function createTranslateLoader(httpClient : HttpClient) {
     BasketService,
     PurchaseService,
     UserService,
+    OrderService,
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptor, multi : true},],
   bootstrap: [AppComponent]
 })

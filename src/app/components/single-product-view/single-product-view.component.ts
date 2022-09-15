@@ -11,6 +11,7 @@ import {ReviewPayloadResponse} from "../../model/review-payload-response";
 import {DateFormatService} from "../../service/date-format-service";
 import {BasketService} from "../../service/basket-service";
 import {ToastrService} from "ngx-toastr";
+import {BasketLightViewComponent} from "../basket-light-view/basket-light-view.component";
 
 @Component({
   selector: 'app-single-product-view',
@@ -28,9 +29,7 @@ export class SingleProductViewComponent implements OnInit {
               private reviewService : ReviewService,
               private dialogRef : MatDialog,
               private dateFormatService : DateFormatService,
-              private basketService : BasketService,
-              private toastrService : ToastrService
-              ) { }
+              private basketService : BasketService) { }
 
   ngOnInit(): void {
     this.authService.loggedIn
@@ -78,7 +77,15 @@ export class SingleProductViewComponent implements OnInit {
       this.chosenQuantity
     );
 
-    this.toastrService.info("Added item to the basket")
+    this.dialogRef.open(BasketLightViewComponent, {
+      width : '25%',
+      height : '100%',
+      position : {
+        right : "0%"
+      },
+      enterAnimationDuration : '0.2s',
+    });
+
     this.chosenQuantity = 1;
   }
 

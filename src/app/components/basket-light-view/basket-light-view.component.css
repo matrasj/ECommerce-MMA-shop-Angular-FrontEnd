@@ -51,19 +51,35 @@
 }
 
 .delete-basket-product-icon {
-  width: 8rem;
+  width: 6rem;
   stroke: #333333;
   align-self: flex-end;
   cursor: pointer;
 }
 
+.delete-con {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
 .basket-product {
   display: flex;
   align-items: flex-start;
   gap: 1.4rem;
   width: 100%;
   padding: 3.4rem 2.8rem;
+  border: none;
   border-bottom: solid 1px #999999;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.basket-product:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  transition: all 0.2s linear;
 }
 
 .basket-product-list {

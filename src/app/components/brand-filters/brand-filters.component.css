@@ -1,25 +1,37 @@
 .brand-con {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-}
 
-label {
-  font-size: 1.4rem;
-  margin: 0;
 }
-
 .brands-list {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+
 }
 
 .brand-filters-con {
-  padding: 3.2rem 4.2rem;
+  padding: 3.2rem 0;
+  width: 25rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 h1 {
   margin-bottom: 2.4rem;
+  padding: 0 2.4rem;
+}
+
+.brand-name {
+  color: #333;
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 1.2rem 1.8rem;
+  margin: 0;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.brand-name:hover, .active-brand {
+  background-color: #333333;
+  color: #ffffff;
+  transition: all 0.2s linear;
 }

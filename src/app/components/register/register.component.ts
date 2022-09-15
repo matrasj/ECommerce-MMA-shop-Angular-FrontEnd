@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {AuthService} from "../../service/auth-service";
 import {RegistrationRequestModel} from "../../model/registration-request-model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
   registerFormGroup : FormGroup | any;
   constructor(private formBuilder : FormBuilder,
               private toastrService : ToastrService,
-              private authService : AuthService) { }
+              private authService : AuthService,
+              private router : Router) { }
 
   ngOnInit(): void {
     this.registerFormGroup = this.formBuilder.group({
@@ -58,6 +60,7 @@ export class RegisterComponent implements OnInit {
         this.password.value,
         this.email.value
       )).subscribe((res) => {
+        this.router.navigate(['/']);
         this.toastrService.success("Check your email account to confirm", "Success");
         this.registerFormGroup.reset();
       });

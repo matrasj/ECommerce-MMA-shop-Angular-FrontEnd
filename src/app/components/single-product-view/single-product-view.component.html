@@ -63,7 +63,7 @@
     <div class="reviews">
       <div class="review" *ngFor="let review of reviews">
         <div class="flex-col">
-          <p class="review-author">{{ review.authorUsername }} ({{ getFormattedDate(review.createdAt)}})</p>
+          <p class="review-author">{{ review.authorFirstName }} {{ review.authorLastName }} ({{ getFormattedDate(review.createdAt)}})</p>
           <p class="review-content">{{ review.content }}</p>
         </div>
       </div>

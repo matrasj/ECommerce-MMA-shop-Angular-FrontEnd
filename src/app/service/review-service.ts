@@ -10,6 +10,7 @@ import {ReviewPayloadResponse} from "../model/review-payload-response";
 export class ReviewService {
   private API_CREATE_REVIEW_URL: string = "http://localhost:8081/api/v1/reviews";
   private API_REVIEWS_BY_PRODUCT_ID_URL: string = "http://localhost:8081/api/v1/reviews/products/id";
+  private API_REVIEWS_CURRENT_USER: string = "http://localhost:8081/api/v1/reviews/current";
   constructor(private httpClient : HttpClient) {
   }
 
@@ -21,5 +22,9 @@ export class ReviewService {
 
   public getReviewsByProductId(productId : number) : Observable<ReviewPayloadResponse[]> {
     return this.httpClient.get<ReviewPayloadResponse[]>(`${this.API_REVIEWS_BY_PRODUCT_ID_URL}/${productId}`);
+  }
+
+  public getReviewsForCurrentUser() : Observable<ReviewPayloadResponse[]> {
+    return this.httpClient.get<ReviewPayloadResponse[]>(`${this.API_REVIEWS_CURRENT_USER}`);
   }
 }

@@ -97,3 +97,46 @@ input {
   justify-content: center;
   align-items: center;
 }
+
+#responsive-menu, .responsive-search-icon {
+  width: 4rem;
+  stroke: #333;
+  display: none;
+}
+
+/*@media only screen and (max-width: 1350px) {*/
+/*  .logo {*/
+/*    display: none;*/
+/*  }*/
+
+/*  .responsive-menu, .responsive-search-icon {*/
+/*    display: block;*/
+/*  }*/
+
+/*  .main-menu-con {*/
+/*    align-items: center;*/
+/*  }*/
+
+
+
+/*  .main-menu-con {*/
+/*    justify-content: space-around;*/
+/*  }*/
+
+/*  #main-functions-menu {*/
+/*    justify-content: space-around;*/
+/*    width: 50%;*/
+/*  }*/
+
+/*  .total-price, .user-feature-name, .search-bar {*/
+/*    display: none;*/
+/*  }*/
+
+
+
+
+
+
+
+
+

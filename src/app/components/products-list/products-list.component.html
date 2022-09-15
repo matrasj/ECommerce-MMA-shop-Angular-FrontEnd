@@ -7,7 +7,7 @@
 
         <p class="product-size">Size: {{ product.size }}</p>
         <p class="product-brand">Brand: {{ product.brandName }}</p>
-        <p class="product-price">{{ product.price | currency : 'PLN'}}</p>
+        <p class="product-price">{{ product.price}} PLN</p>
         <button class="add-basket-btn" (click)="addToTheBasket(product)">Add to basket</button>
       </div>
     </div>

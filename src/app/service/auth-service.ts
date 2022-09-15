@@ -78,9 +78,6 @@ export class AuthService {
     localStorage.removeItem('expiresAt');
 
     this.loggedIn.next(false);
-
-
-
   }
 
   getUserName() {

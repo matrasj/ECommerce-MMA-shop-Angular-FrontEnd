@@ -65,7 +65,7 @@ export class MenuComponent implements OnInit {
         right : "0%"
       },
       enterAnimationDuration : '0.2s',
-    })
+    });
   }
 
 }

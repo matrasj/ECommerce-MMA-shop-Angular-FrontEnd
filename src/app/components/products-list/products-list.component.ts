@@ -4,6 +4,8 @@ import {ActivatedRoute} from "@angular/router";
 import {ProductModel} from "../../model/product-model";
 import {BasketService} from "../../service/basket-service";
 import {ToastrService} from "ngx-toastr";
+import {BasketLightViewComponent} from "../basket-light-view/basket-light-view.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-products-list',
@@ -19,7 +21,7 @@ export class ProductsListComponent implements OnInit {
   constructor(private productService : ProductService,
               private activatedRoute : ActivatedRoute,
               private basketService : BasketService,
-              private toastrService : ToastrService) { }
+              private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
     this.fetchProductsData();
@@ -36,6 +38,12 @@ export class ProductsListComponent implements OnInit {
 
         else if (paramMap.has('keyword')) {
           this.productService.getProductWithPaginationByKeyword(String(paramMap.get('keyword')),
+            this.pageSize, this.pageNumber - 1)
+            .subscribe((response) => this.handleResponseData(response));
+        }
+
+        else if (paramMap.has('brandName')) {
+          this.productService.getProductsWithPaginationByBrandName(String(paramMap.get('brandName')),
             this.pageSize, this.pageNumber - 1)
             .subscribe((response) => this.handleResponseData(response));
         }
@@ -61,7 +69,15 @@ export class ProductsListComponent implements OnInit {
       1
     );
 
-    this.toastrService.info("Added item to your basketm")
+
+    this.dialogRef.open(BasketLightViewComponent, {
+      width : '25%',
+      height : '100%',
+      position : {
+        right : "0%"
+      },
+      enterAnimationDuration : '0.2s',
+    });
   }
 
 }

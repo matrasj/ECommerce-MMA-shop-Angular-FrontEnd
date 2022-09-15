@@ -35,4 +35,9 @@ export class BasketLightViewComponent implements OnInit {
     this.router.navigateByUrl('/basket');
   }
 
+  navigateToProductSinglePage(product : BasketProductModel) {
+    this.router.navigate(['/products', 'view', product.id]);
+    this.dialogRef.closeAll();
+  }
+
 }
