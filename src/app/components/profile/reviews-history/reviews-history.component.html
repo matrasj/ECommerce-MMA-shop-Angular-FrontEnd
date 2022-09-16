@@ -1,0 +1,23 @@
+<div class="main-con">
+  <h1>Your reviews</h1>
+  <div class="reviews">
+    <div class="review" *ngFor="let review of reviews" [routerLink]="['/products', 'view', review.productId]">
+      <div class="flex-col">
+        <p class="review-author">{{ review?.authorFirstName }} {{ review?.authorLastName }} ({{ getFormattedDate(review.createdAt)}})</p>
+        <p class="review-content">{{ review?.content }}</p>
+      </div>
+
+      <div class="flex">
+        <img [src]="review?.productImagePath" class="product-img"/>
+        <div class="flex-column">
+          <p class="product-name">{{ review?.productName }}</p>
+          <p class="product-price">{{ review?.productPrice }} PLN</p>
+          <p class="product-desc">{{ review.productDescription.slice(0, 50)}}...</p>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="alert alert-warning" *ngIf="reviews.length === 0">No reviews yet.</p>
+  </div>
+</div>

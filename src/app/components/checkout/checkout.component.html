@@ -1,0 +1,134 @@
+<div class="con">
+  <div class="form-con">
+    <form [formGroup]="checkoutFormGroup" (ngSubmit)="onMakingPurchase()">
+      <div formGroupName="purchase">
+        <div class="form-group">
+          <h1>Shipping details</h1>
+          <label>*Email for order confirmation</label>
+          <input class="form-control"
+                 formControlName="email"
+                 [ngClass]="email.errors && (email.dirty || email.touched) ? 'is-invalid' : ''"
+                 placeholder="Enter your email..."/>
+          <p *ngIf="email.errors && (email.dirty || email.touched)" class="invalid-feedback">
+            Email must be valid
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>*First name</label>
+          <input class="form-control"
+                 formControlName="firstName"
+                 [ngClass]="firstName.errors && (firstName.dirty || firstName.touched) ? 'is-invalid' : ''"
+                 placeholder="Enter your first name..."/>
+          <p *ngIf="firstName.errors && (firstName.dirty || firstName.touched)" class="invalid-feedback">
+            First name must be valid
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>*Last name</label>
+          <input class="form-control"
+                 formControlName="lastName"
+                 [ngClass]="lastName.errors && (lastName.dirty || lastName.touched) ? 'is-invalid' : ''"
+                 placeholder="Enter your last name..."/>
+          <p *ngIf="lastName.errors && (lastName.dirty || lastName.touched)" class="invalid-feedback">
+            Last name must be valid
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>*Address</label>
+          <input class="form-control"
+                 formControlName="address"
+                 [ngClass]="address.errors && (address.dirty || address.touched) ? 'is-invalid' : ''"
+                 placeholder="Enter your address..."/>
+          <p *ngIf="address.errors && (address.dirty || address.touched)" class="invalid-feedback">
+            Address must be valid
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>*City</label>
+          <input class="form-control"
+                 formControlName="city"
+                 [ngClass]="city.errors && (city.dirty || city.touched) ? 'is-invalid' : ''"
+                 placeholder="Enter your city..."/>
+          <p *ngIf="city.errors && (city.dirty || city.touched)" class="invalid-feedback">
+            City must be valid
+          </p>
+        </div>
+
+        <div class="form-row">
+          <div class="col">
+            <label>*Country</label>
+            <select class="form-control"
+                    formControlName="country"
+                    (change)="fetchStatesByCountry(country.value)"
+                    [ngClass]="country.errors && (country.dirty || country.touched) ? 'is-invalid' : ''"
+
+            >
+              <option [ngValue]="country.name" *ngFor="let country of countries">{{ country.name }}</option>
+            </select>
+            <p *ngIf="country.errors && (country.dirty || country.touched)" class="invalid-feedback">
+              Country must be valid
+            </p>
+          </div>
+
+          <div class="col">
+            <label>*State</label>
+            <select class="form-control"
+                    formControlName="state"
+                    [ngClass]="state.errors && (state.dirty || state.touched) ? 'is-invalid' : ''"
+            >
+              <option  *ngFor="let state of states">{{ state.name }}</option>
+            </select>
+            <p *ngIf="state.errors && (state.dirty || state.touched)" class="invalid-feedback">
+              State must be valid
+            </p>
+          </div>
+        </div>
+
+        <div class="form-row">
+        <div class="col">
+          <label>*Zip / Postal code</label>
+          <input class="form-control"
+                 [ngClass]="zipCode.errors && (zipCode.dirty || zipCode.touched) ? 'is-invalid' : ''"
+                 formControlName="zipCode"
+                 placeholder="Enter your zip / postal code..."/>
+          <p *ngIf="zipCode.errors && (zipCode.dirty || zipCode.touched)" class="invalid-feedback">
+            Zip code must be valid
+          </p>
+        </div>
+        <div class="col">
+          <label>*Phone</label>
+          <input class="form-control"
+                 [ngClass]="phoneNumber.errors && (phoneNumber.dirty || phoneNumber.touched) ? 'is-invalid' : ''"
+                 formControlName="phoneNumber"
+                 placeholder="Enter your phone..."/>
+          <p *ngIf="phoneNumber.errors && (phoneNumber.dirty || phoneNumber.touched)" class="invalid-feedback">
+            Phone must be valid
+          </p>
+        </div>
+      </div>
+
+        <div formGroupName="creditCard" class="form-area">
+
+          <h3>Credit or Debit Card</h3>
+
+          <div id="card-element" >
+            <!-- a Stripe element will be inserted here -->
+          </div>
+
+          <!-- Used to display form errors -->
+          <div id="card-errors" style="font-size: 1.4rem" class="displayError.textContent!=='': 'alert alert-danger mt-1'"></div>
+
+        </div>
+        <div class="form-row">
+        </div>
+
+        <button type="submit" class="add-basket-btn" [disabled]="basketService.basket.length === 0">Make purchase</button>
+
+      </div>
+    </form>
+  </div>
+</div>

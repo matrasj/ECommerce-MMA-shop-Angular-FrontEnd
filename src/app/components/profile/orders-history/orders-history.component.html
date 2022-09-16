@@ -1,0 +1,39 @@
+<div class="orders-history-con">
+
+  <div class="history-table-con">
+    <div class="flex space-between">
+      <h1>Orders history</h1>
+      <button class="add-basket-btn" [routerLink]="['/profile']">Back</button>
+    </div>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Order tracking number</th>
+        <th scope="col">Created at</th>
+        <th scope="col">Total price</th>
+        <th scope="col">Total quantity</th>
+        <th scope="col">Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let order of orders">
+        <th scope="row">{{ order.id }}</th>
+        <td>{{ order.orderTrackingNumber}}</td>
+        <td>{{ getFormattedDate(order.createdAt)}}</td>
+        <td>{{ order.totalPrice}} PLN</td>
+        <td>{{ order.totalQuantity }}</td>
+        <td>{{ order.status}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <ngb-pagination
+      [collectionSize]="totalElements"
+      [(page)]="pageNumber"
+      [boundaryLinks]="true"
+      [pageSize]="pageSize"
+      (pageChange)="fetchOrders()"
+    ></ngb-pagination>
+  </div>
+</div>
