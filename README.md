@@ -56,8 +56,6 @@ Backend repo you can find under this link: https://github.com/pozerinhooo/EComme
 # Stripe order
 ![image](https://user-images.githubusercontent.com/95829811/190671931-5f2bcc8c-41fd-44c3-8cc2-e9979b39e70c.png)
 
-# Authenticated user
-
 # Register
 ![image](https://user-images.githubusercontent.com/95829811/190672270-05775969-3065-4136-ab8d-1519d8924b66.png)
 ![image](https://user-images.githubusercontent.com/95829811/190672551-a0cd53d6-3ece-4c7e-b9a5-f021bfbfb6ea.png)
