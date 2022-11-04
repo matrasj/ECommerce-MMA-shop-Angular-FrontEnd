@@ -1,4 +1,5 @@
-Main goal of ECommerce project was to create full-stack applciation where we can sell products. My hobby is martial arts, and because of that items are contected to this sport. For frontend side I used Angular framework to practise this technology. Backend side is written in Java with help of SpringBoot.
+# ECommerce
+Main goal of ECommerce project was to create full-stack applciation where we can sell products. My hobby are martial arts, and because of that items are contected to this sport. For frontend side I used Angular framework to practise this technology. Backend side is written in Java with help of SpringBoot.
 Backend repo you can find under this link: https://github.com/pozerinhooo/ECommerce-MMA-shop-SpringBoot-Backend
 
 # Bellow I attach screenshots gallery
