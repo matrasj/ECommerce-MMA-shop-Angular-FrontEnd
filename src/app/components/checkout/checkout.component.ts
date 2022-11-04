@@ -116,11 +116,14 @@ export class CheckoutComponent implements OnInit {
         this.countries = countries;
         this.country.setValue(this.countries[0].name)
         this.fetchStatesByCountry(this.countries[0].name);
+
+
       });
   }
 
   private getCountryCodeByCountryName(countryName : string) : any {
     // @ts-ignore
+
     return this.countries.find(((country) => country.name === countryName)).code;
   }
 

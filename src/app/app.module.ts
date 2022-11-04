@@ -24,7 +24,6 @@ import {AuthService} from "./service/auth-service";
 import { CreateReviewComponent } from './components/single-product-view/create-review/create-review.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {ReviewService} from "./service/review-service";
-import {TokenInterceptor} from "./token-interceptor";
 import {DateFormatService} from "./service/date-format-service";
 import {BasketService} from "./service/basket-service";
 import { BasketLightViewComponent } from './components/basket-light-view/basket-light-view.component';
@@ -34,13 +33,14 @@ import {PurchaseService} from "./service/purchase-service";
 import {UserService} from "./service/user-service";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { ProfileComponent } from './components/profile/profile.component';
-import {AuthGuard} from "./service/security/auth-guard";
+import {AuthGuard} from "./config/auth-guard";
 import { OrdersHistoryComponent } from './components/profile/orders-history/orders-history.component';
 import { ReviewsHistoryComponent } from './components/profile/reviews-history/reviews-history.component';
 import { AccountDeliveryDataComponent } from './components/profile/account-delivery-data/account-delivery-data.component';
 import {OrderModel} from "./model/order-model";
 import {OrderService} from "./service/order-service";
 import {HelpSearchingModalService} from "./service/help-searching-modal-service";
+import {TokenInterceptor} from "./config/token-interceptor";
 
 
 const routes = [

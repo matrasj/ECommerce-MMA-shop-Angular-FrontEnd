@@ -1,9 +1,9 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {RegistrationRequestModel} from "../model/registration-request-model";
+import {RegistrationRequestModel} from "../model/auth/registration-request-model";
 import {BehaviorSubject, Observable, Subject, tap, throwError} from "rxjs";
-import {LoginRequestPayload} from "../model/login-request-payload";
-import {LoginPayloadResponse} from "../model/login-payload-response";
+import {LoginRequestPayload} from "../model/auth/login-request-payload";
+import {LoginPayloadResponse} from "../model/auth/login-payload-response";
 import {ToastrService} from "ngx-toastr";
 import {bottom} from "@popperjs/core";
 
@@ -37,31 +37,19 @@ export class AuthService {
       loginRequestPayload).subscribe((data : LoginPayloadResponse) => {
       localStorage.setItem('authenticationToken', data.authenticationToken);
       localStorage.setItem('username', data.username);
-      localStorage.setItem('refreshToken', data.refreshToken);
       localStorage.setItem('expiresAt', data.expiresAt);
 
 
       this.loggedIn.next(true);
       this.username.next(data.username);
       this.toastrService.success("Successfully logged in!");
-      });
+      }, error => {
+
+    });
   }
 
-  getJwtToken() {
+  getJwtToken() : any {
     return localStorage.getItem('authenticationToken');
-  }
-
-  refreshToken() {
-    return this.httpClient.post<LoginPayloadResponse>('http://localhost:8081/api/v1/auth/refresh/token',
-      this.refreshTokenPayload)
-      .pipe(tap(response => {
-        localStorage.removeItem('authenticationToken');
-        localStorage.removeItem('expiresAt');
-
-        localStorage.setItem('authenticationToken',
-          response.authenticationToken);
-        localStorage.setItem('expiresAt', response.expiresAt);
-      }));
   }
 
   logout() {
