@@ -24,7 +24,7 @@ export class CreateReviewComponent implements OnInit {
   ngOnInit(): void {
     this.reviewFormGroup = this.formBuilder.group({
       review : this.formBuilder.group({
-        content : new FormControl('', [Validators.minLength(2), Validators.maxLength(200)])
+        content : new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)])
       })
     })
   }
@@ -41,11 +41,14 @@ export class CreateReviewComponent implements OnInit {
         this.content.value,
         this.currentProductId
       )).subscribe((res) => {
+        console.log(res)
         window.location.reload();
         this.toastrService.success(res);
         this.reviewFormGroup.reset();
         this.dialogRef.closeAll();
 
+      }, error => {
+        console.log(error)
       })
     }
   }

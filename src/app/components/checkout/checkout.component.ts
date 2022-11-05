@@ -193,7 +193,6 @@ export class CheckoutComponent implements OnInit {
         this.totalPrice * 100,
         "PLN"
       )).subscribe((paymentIntentResponse: any) => {
-        console.log(paymentIntentResponse)
         this.stripe.confirmCardPayment(JSON.parse(paymentIntentResponse).client_secret, {
           payment_method : {
             card : this.cardElement,
